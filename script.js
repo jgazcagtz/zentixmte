@@ -6,48 +6,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const userInput = document.getElementById('userInput');
     const chatBody = document.getElementById('chatBody');
 
-    // Open and close chat container
-    openChatBtn.addEventListener('click', () => chatContainer.classList.remove('hidden'));
-    closeChatBtn.addEventListener('click', () => chatContainer.classList.add('hidden'));
-
-    // WhatsApp Integration
-    const whatsappButton = document.getElementById('whatsappButton');
-    whatsappButton.addEventListener('click', () => {
-        const phoneNumber = "525528503766"; // Your phone number without "+" for WhatsApp
-        window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}`, '_blank');
+    // Show chat container
+    openChatBtn.addEventListener('click', () => {
+        chatContainer.classList.remove('hidden');
     });
 
-    // Email Integration
-    const emailButton = document.getElementById('emailButton');
-    emailButton.addEventListener('click', () => {
-        const emailAddress = "info@minitienda.online";
-        window.location.href = `mailto:${emailAddress}`;
+    // Hide chat container
+    closeChatBtn.addEventListener('click', () => {
+        chatContainer.classList.add('hidden');
     });
 
-    // Phone Call Integration
-    const phoneButton = document.getElementById('phoneButton');
-    phoneButton.addEventListener('click', () => {
-        const phoneNumber = "+525528503766"; // Your phone number with "+" for phone call
-        window.location.href = `tel:${phoneNumber}`;
-    });
-
-    // Message sending logic
+    // Send message on button click or Enter key press
     sendBtn.addEventListener('click', sendMessage);
     userInput.addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') sendMessage();
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
     });
 
     async function sendMessage() {
         const message = userInput.value.trim();
-        if (message === '') return;
+        if (message === '') return; // Prevent sending empty messages
 
+        // Display user message
         const userMsgDiv = document.createElement('div');
         userMsgDiv.classList.add('message', 'user-message');
         userMsgDiv.textContent = message;
         chatBody.appendChild(userMsgDiv);
         chatBody.scrollTop = chatBody.scrollHeight;
+
+        // Clear the input field
         userInput.value = '';
 
+        // Display loading message
         const loadingMsgDiv = document.createElement('div');
         loadingMsgDiv.classList.add('message', 'bot-message');
         loadingMsgDiv.textContent = 'Zentix está escribiendo...';
@@ -55,15 +46,21 @@ document.addEventListener('DOMContentLoaded', () => {
         chatBody.scrollTop = chatBody.scrollHeight;
 
         try {
+            // Send message to backend
             const response = await fetch('/api/chat', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                },
                 body: JSON.stringify({ message: message }),
             });
 
-            if (!response.ok) throw new Error(`Network response was not ok: ${response.statusText}`);
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.statusText}`);
+            }
+
             const data = await response.json();
-            loadingMsgDiv.remove();
+            loadingMsgDiv.remove(); // Remove the loading message
 
             if (data.reply) {
                 const botMsgDiv = document.createElement('div');
@@ -76,8 +73,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (error) {
             console.error('Error fetching the reply from the backend:', error);
-            loadingMsgDiv.remove();
 
+            loadingMsgDiv.remove(); // Remove the loading message
+
+            // Display error message to the user
             const errorMsgDiv = document.createElement('div');
             errorMsgDiv.classList.add('message', 'bot-message', 'error-message');
             errorMsgDiv.textContent = 'Lo siento, hubo un problema al procesar tu solicitud. Por favor intenta nuevamente.';
