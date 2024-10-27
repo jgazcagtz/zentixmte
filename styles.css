@@ -1,18 +1,19 @@
 /* General Styles */
 body {
     margin: 0;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+   font-family: "League Spartan", sans-serif;
     background-color: #f4f6f8;
     color: #333;
 }
 
 header {
+  font-family: "League Spartan", sans-serif;
     background: linear-gradient(135deg, #4A90E2, #357ABD);
     color: white;
     padding: 20px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: 'Montserrat', sans-serif;
+    
 }
 
 header .logo {
@@ -22,6 +23,7 @@ header .logo {
 }
 
 main {
+  font-family: "League Spartan", sans-serif;
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
@@ -44,7 +46,7 @@ main {
 
 .features h2 {
     margin-top: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "League Spartan", sans-serif;
     font-size: 2em;
     color: #4A90E2;
 }
@@ -73,6 +75,7 @@ main {
 
 /* Buttons */
 button {
+  font-family: "League Spartan", sans-serif;
     background-color: #4A90E2;
     color: white;
     border: none;
@@ -82,7 +85,7 @@ button {
     font-size: 16px;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: 'Montserrat', sans-serif;
+    font-family: "League Spartan", sans-serif;
 }
 
 button:hover {
@@ -106,6 +109,7 @@ button:active {
 }
 
 .demos button {
+  font-family: "League Spartan", sans-serif;
     width: 120px;
 }
 
@@ -141,7 +145,7 @@ button:active {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "League Spartan", sans-serif;
 }
 
 .chat-header h3 {
