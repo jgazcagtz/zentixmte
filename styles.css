@@ -13,7 +13,6 @@ header {
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     font-family: 'Montserrat', sans-serif;
-    position: relative;
 }
 
 header .logo {
@@ -23,23 +22,24 @@ header .logo {
 }
 
 main {
-    padding: 40px 20px;
+    padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+/* Feature Section */
 .features {
     background: #ffffff;
     padding: 30px;
     border-radius: 12px;
     text-align: center;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .features:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .features h2 {
@@ -58,8 +58,8 @@ main {
 .features li {
     margin: 15px 0;
     font-size: 18px;
-    position: relative;
     padding-left: 25px;
+    position: relative;
     text-align: left;
 }
 
@@ -71,6 +71,7 @@ main {
     font-weight: bold;
 }
 
+/* Buttons */
 button {
     background-color: #4A90E2;
     color: white;
@@ -79,45 +80,52 @@ button {
     border-radius: 30px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: 'Montserrat', sans-serif;
 }
 
 button:hover {
     background-color: #357ABD;
     transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 button:active {
     transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* New Styles for Demo Buttons */
+/* Demo Buttons */
 .demos {
     margin-top: 20px;
     display: flex;
     gap: 15px;
     justify-content: center;
+    flex-wrap: wrap;
+}
+
+.demos button {
+    width: 120px;
 }
 
 /* Chatbot Styles */
 .chat-container {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 20px;
+    right: 20px;
     width: 90%;
     max-width: 400px;
     background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     height: 550px;
     z-index: 1000;
     overflow: hidden;
+    transition: transform 0.3s ease;
 }
 
 .hidden {
@@ -161,6 +169,7 @@ button:active {
     background-color: #f9f9f9;
 }
 
+/* Messages */
 .message {
     margin: 15px 0;
     padding: 12px 20px;
@@ -175,15 +184,16 @@ button:active {
 .bot-message {
     background-color: #e1f5fe;
     align-self: flex-start;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .user-message {
     background-color: #c8e6c9;
     align-self: flex-end;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Footer and Input */
 .chat-footer {
     display: flex;
     border-top: 1px solid #ddd;
@@ -214,15 +224,17 @@ button:active {
     cursor: pointer;
     border-radius: 50%;
     font-size: 18px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .chat-footer button:hover {
     background-color: #357ABD;
     transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Contact Buttons */
 .chat-contact {
     display: flex;
     justify-content: space-around;
@@ -232,7 +244,6 @@ button:active {
 }
 
 .chat-contact button {
-    background-color: #25D366; /* WhatsApp Green */
     border: none;
     border-radius: 50%;
     width: 40px;
@@ -240,8 +251,8 @@ button:active {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .chat-contact button img {
@@ -251,6 +262,11 @@ button:active {
 
 .chat-contact button:hover {
     transform: scale(1.1);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.chat-contact button:nth-child(1) {
+    background-color: #25D366; /* WhatsApp Green */
 }
 
 .chat-contact button:nth-child(2) {
@@ -261,8 +277,19 @@ button:active {
     background-color: #34B7F1; /* Call Blue */
 }
 
+/* Responsive adjustments */
 @media (min-width: 600px) {
     .chat-container {
         width: 400px;
+    }
+}
+
+@media (max-width: 600px) {
+    .features, .demos button {
+        font-size: 14px;
+    }
+    button {
+        padding: 10px 18px;
+        font-size: 15px;
     }
 }
