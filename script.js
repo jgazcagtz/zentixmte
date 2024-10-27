@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         userInput.value = ''; // Clear the input field
 
         // Send message to backend
-        fetch('https://zentixmte.vercel.app/api/chat', {
+        fetch('/api/chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
